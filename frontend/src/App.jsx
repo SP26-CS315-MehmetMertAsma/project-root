@@ -139,7 +139,8 @@ function App() {
         <h1
           style={{
             textAlign: "center",
-            marginBottom: "20px",
+            marginTop: "5px",
+            marginBottom: "35px",
             color: "#f8fafc",
           }}
         >
