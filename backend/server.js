@@ -161,6 +161,18 @@ app.delete("/api/orders/:id", (req, res) => {
   res.json({ message: "Order deleted successfully" });
 });
 
+app.delete("/api/tables/:tableNumber/orders", (req, res) => {
+  const numericTable = Number(req.params.tableNumber);
+
+  if (!tables.some((table) => table.tableNumber === numericTable)) {
+    return res.status(404).json({ error: "Table not found" });
+  }
+
+  orders = orders.filter((order) => order.tableNumber !== numericTable);
+
+  res.json({ message: "All orders cleared for this table" });
+});
+
 if (require.main === module) {
   const PORT = 3000;
   app.listen(PORT, () => {
